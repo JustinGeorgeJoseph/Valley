@@ -29,7 +29,7 @@ class HomeActivity : AppCompatActivity() {
     private fun getContents() {
         lifecycleScope.launch(Dispatchers.Main) {
             homeViewModel.getContents().collect{
-                Log.d("TAG_JUSTIN","---> ${it.size}")
+
             }
         }
     }
