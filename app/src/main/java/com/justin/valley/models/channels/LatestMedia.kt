@@ -1,6 +1,6 @@
 package com.justin.valley.models.channels
 
-import com.justin.valley.models.CoverAsset
+import com.justin.valley.models.common.CoverAsset
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
