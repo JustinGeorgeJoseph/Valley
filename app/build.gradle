@@ -65,8 +65,9 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.5'
 
     //Room library
-    implementation "androidx.room:room-runtime:2.4.2"
-    annotationProcessor "androidx.room:room-compiler:2.4.2"
+    kapt "androidx.room:room-compiler:2.4.2"
+    implementation "androidx.room:room-ktx:2.4.2"
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
 
     //Hilt
     implementation "com.google.dagger:hilt-android:2.40.1"

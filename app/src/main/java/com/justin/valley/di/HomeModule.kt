@@ -1,8 +1,8 @@
 package com.justin.valley.di
 
-import com.justin.valley.domain.HomeContentsUseCase
-import com.justin.valley.domain.HomeContentsUseCaseImpl
-import com.justin.valley.repository.HomeRepository
+import com.justin.valley.domain.usecase.HomeContentsUseCase
+import com.justin.valley.domain.usecase.HomeContentsUseCaseImpl
+import com.justin.valley.domain.repo.HomeRepository
 import com.justin.valley.repository.HomeRepositoryImpl
 import dagger.Binds
 import dagger.Module

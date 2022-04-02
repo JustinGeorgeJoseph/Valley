@@ -1,12 +1,9 @@
 package com.justin.valley.ui
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.justin.valley.domain.HomeContentsUseCase
+import com.justin.valley.domain.usecase.HomeContentsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.supervisorScope
 import kotlinx.coroutines.withContext
 import java.lang.Exception
@@ -17,28 +14,33 @@ class HomeViewModel @Inject constructor(
     private val homeContentsUseCase: HomeContentsUseCase,
 ) : ViewModel() {
 
-    suspend fun getHomeContents() = supervisorScope {
+    suspend fun refreshHomeContents() = supervisorScope {
         withContext(Dispatchers.IO) {
             try {
-                homeContentsUseCase.getHomeNewEpisodes()
+                homeContentsUseCase.refreshHomeNewEpisodes()
             } catch (e: Exception) {
 
             }
         }
         withContext(Dispatchers.IO) {
             try {
-                homeContentsUseCase.getHomeChannels()
+                homeContentsUseCase.refreshHomeChannels()
             } catch (e: Exception) {
 
             }
         }
         withContext(Dispatchers.IO) {
             try {
-                homeContentsUseCase.getHomeCategories()
+                homeContentsUseCase.refreshHomeCategories()
             } catch (e: Exception) {
 
             }
         }
     }
+
+
+    //suspend fun getContents() = homeContentsUseCase.getCategories()
+    //suspend fun getContents() = homeContentsUseCase.getNewEpisodes()
+    suspend fun getContents() = homeContentsUseCase.getChannels()
 
 }
