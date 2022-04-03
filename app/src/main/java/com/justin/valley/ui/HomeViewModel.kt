@@ -3,6 +3,9 @@ package com.justin.valley.ui
 import androidx.lifecycle.ViewModel
 import com.justin.valley.adapters.utils.HomeRowType
 import com.justin.valley.domain.usecase.HomeContentsUseCase
+import com.justin.valley.utils.getCourseSublist
+import com.justin.valley.utils.getSeriesSublist
+import com.justin.valley.utils.getSublist
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
@@ -52,12 +55,12 @@ class HomeViewModel @Inject constructor(
                 channelsFlow,
                 categoriesFlow) { newEpisodes, channels, categories ->
                 val homeContent = arrayListOf<HomeRowType>()
-                homeContent.add(HomeRowType.NewEpisodeRow(newEpisodes))
+                homeContent.add(HomeRowType.NewEpisodeRow(getSublist(newEpisodes,6)))
                 channels.forEach { channel ->
                     if (channel.series.isNullOrEmpty()) {
-                        homeContent.add(HomeRowType.CourseRow(channel))
+                        homeContent.add(HomeRowType.CourseRow(getCourseSublist(channel,6)))
                     } else {
-                        homeContent.add(HomeRowType.SeriesRow(channel))
+                        homeContent.add(HomeRowType.SeriesRow(getSeriesSublist(channel,6)))
                     }
                 }
                 homeContent.add(HomeRowType.CategoryRow(categories))
