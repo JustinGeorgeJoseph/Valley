@@ -16,3 +16,4 @@
 - [Moshi](https://github.com/square/moshi/) - A modern JSON library for Kotlin and Java.
 - [Glide](https://github.com/bumptech/glide) - Loading images from network.
 - [Material-Components](https://github.com/material-components/material-components-android) - Material design components for building ripple animation, and CardView.
+- [Esspresso](https://developer.android.com/training/testing/espresso) - UI testing library
