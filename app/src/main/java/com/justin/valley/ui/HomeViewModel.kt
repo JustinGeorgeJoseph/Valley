@@ -1,8 +1,7 @@
 package com.justin.valley.ui
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.justin.valley.adapters.HomeRowType
+import com.justin.valley.adapters.utils.HomeRowType
 import com.justin.valley.domain.usecase.HomeContentsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

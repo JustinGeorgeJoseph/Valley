@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.justin.valley.R
+import com.justin.valley.adapters.utils.HomeDiffUtils
+import com.justin.valley.adapters.utils.HomeRowType
+import com.justin.valley.adapters.utils.HomeRowTypeEnum
 import com.justin.valley.databinding.*
 
 class HomeAdapter : ListAdapter<HomeRowType, HomeAdapter.HomeViewHolder>(HomeDiffUtils()) {
