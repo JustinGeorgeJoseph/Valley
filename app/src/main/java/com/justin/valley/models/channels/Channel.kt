@@ -27,11 +27,11 @@ data class Channel(
 
     @Json(name = "series")
     @TypeConverters(SeriesTypeConverter::class)
-    val series: List<Series>?,
+    var series: List<Series>?,
 
     @Json(name = "latestMedia")
     @TypeConverters(LatestMediaTypeConverter::class)
-    val latestMedia: List<LatestMedia>?,
+    var latestMedia: List<LatestMedia>?,
 
     @Json(name = "iconAsset")
     @TypeConverters(IconAssetTypeConverter::class)
