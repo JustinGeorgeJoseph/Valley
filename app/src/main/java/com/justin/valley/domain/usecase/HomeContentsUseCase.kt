@@ -10,6 +10,10 @@ interface HomeContentsUseCase {
     suspend fun refreshHomeChannels()
     suspend fun refreshHomeCategories()
 
+    suspend fun deleteHomeNewEpisodes()
+    suspend fun deleteHomeChannels()
+    suspend fun deleteHomeCategories()
+
     suspend fun getCategories() : Flow<List<Category>>
     suspend fun getNewEpisodes() : Flow<List<Media>>
     suspend fun getChannels() : Flow<List<Channel>>

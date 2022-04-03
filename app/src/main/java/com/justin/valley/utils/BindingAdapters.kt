@@ -1,6 +1,7 @@
 package com.justin.valley.utils
 
 import android.graphics.drawable.ColorDrawable
+import android.util.Log
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
@@ -24,6 +25,7 @@ fun loadRoundImage(view: AppCompatImageView, url: String?) {
     if (!url.isNullOrEmpty()) {
         val options: RequestOptions = RequestOptions()
             .placeholder(ContextCompat.getDrawable(view.context,R.drawable.bg_rectangle_round))
+            .error(ContextCompat.getDrawable(view.context,R.drawable.bg_rectangle_round))
             .circleCrop()
         Glide.with(view.context)
             .load(url)
