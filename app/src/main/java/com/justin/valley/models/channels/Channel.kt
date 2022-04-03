@@ -23,7 +23,7 @@ data class Channel(
     val title: String?,
 
     @Json(name = "mediaCount")
-    var type: Int = 0,
+    var mediaCount: Int = 0,
 
     @Json(name = "series")
     @TypeConverters(SeriesTypeConverter::class)

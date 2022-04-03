@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Valley</string>
+    <string name="channels">Channels</string>
+    <string name="new_episodes">New Episodes</string>
+    <string name="browse_by_categories">Browse by categories</string>
+    <string name="episodes">episodes</string>
 </resources>

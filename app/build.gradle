@@ -31,6 +31,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        dataBinding true
+    }
 }
 
 dependencies {
@@ -72,6 +76,9 @@ dependencies {
     //Hilt
     implementation "com.google.dagger:hilt-android:2.40.1"
     kapt "com.google.dagger:hilt-compiler:2.40.1"
+
+    //swipe refresh
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
     //Unit test
     testImplementation 'junit:junit:4.13.2'

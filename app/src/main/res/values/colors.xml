@@ -9,4 +9,9 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="valley_blue">#23272F</color>
+    <color name="grey_c1">#C1C1C1</color>
+    <color name="item_title_color">#95989D</color>
+    <color name="bg_horizontal_divider">#3C434E</color>
+    <color name="course_count_color">#95989D</color>
+    <color name="sub_title_color">#95989D</color>
 </resources>
