@@ -1,4 +1,4 @@
-package com.justin.valley.adapters
+package com.justin.valley.adapters.utils
 
 import com.justin.valley.models.categories.Category
 import com.justin.valley.models.channels.Channel
