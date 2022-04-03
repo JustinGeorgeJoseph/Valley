@@ -24,6 +24,7 @@
             android:paddingEnd="@dimen/space_13"
             android:paddingBottom="@dimen/space_9"
             android:text="@{title}"
+            android:fontFamily="@font/gilroy_bold"
             android:gravity="center"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_18"

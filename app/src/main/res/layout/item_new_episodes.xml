@@ -14,6 +14,7 @@
             android:lineHeight="@dimen/text_size_25"
             android:letterSpacing="0.02"
             android:text="@string/new_episodes"
+            android:fontFamily="@font/gilroy_extra_bold"
             android:layout_marginStart="@dimen/space_5x"
             android:textColor="@color/item_title_color"
             android:textSize="@dimen/text_size_20"

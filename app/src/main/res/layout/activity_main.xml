@@ -17,6 +17,7 @@
             android:layout_marginEnd="@dimen/space_5x"
             android:lineHeight="@dimen/text_size_35"
             android:text="@string/channels"
+            android:fontFamily="@font/gilroy_black"
             android:textColor="@color/grey_c1"
             android:textSize="@dimen/text_size_30"
             app:layout_constraintStart_toStartOf="parent"

@@ -46,6 +46,7 @@
                 android:letterSpacing="0.02"
                 android:maxLines="3"
                 android:text="@{title}"
+                android:fontFamily="@font/gilroy_bold"
                 android:layout_marginStart="@dimen/space_5"
                 android:layout_marginEnd="@dimen/space_5"
                 android:layout_marginTop="@dimen/space_10"
