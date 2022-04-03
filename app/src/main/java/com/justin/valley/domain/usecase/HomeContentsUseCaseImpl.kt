@@ -15,9 +15,7 @@ class HomeContentsUseCaseImpl @Inject constructor(
 
     override suspend fun refreshHomeNewEpisodes() {
         try {
-            homeRepository.getNewEpisodes()?.apply {
-                valleyDatabase.getNewEpisodesDao().deleteAll()
-            }?.forEach {
+            homeRepository.getNewEpisodes()?.forEach {
                 valleyDatabase.getNewEpisodesDao().insertNewEpisodes(it)
             }
         } catch (e: Exception) {
@@ -26,9 +24,7 @@ class HomeContentsUseCaseImpl @Inject constructor(
 
     override suspend fun refreshHomeChannels() {
         try {
-            homeRepository.getChannels()?.apply {
-                valleyDatabase.getChannelsDao().deleteAll()
-            }?.forEach {
+            homeRepository.getChannels()?.forEach {
                 valleyDatabase.getChannelsDao().insertChannels(it)
             }
         } catch (e: Exception) {

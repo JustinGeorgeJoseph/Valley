@@ -4,7 +4,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.justin.valley.models.common.CoverAsset
-import com.justin.valley.models.common.LatestMedias
 import com.justin.valley.models.typeConverters.CoverAssetTypeConverter
 import com.justin.valley.models.typeConverters.IconAssetTypeConverter
 import com.justin.valley.models.typeConverters.LatestMediaTypeConverter
@@ -20,7 +19,8 @@ data class Channel(
     var id: String?,
 
     @Json(name = "title")
-    val title: String?,
+    @PrimaryKey
+    val title: String,
 
     @Json(name = "mediaCount")
     var mediaCount: Int = 0,
@@ -41,7 +41,4 @@ data class Channel(
     @TypeConverters(CoverAssetTypeConverter::class)
     val coverAsset: CoverAsset?,
 
-    ) {
-    @PrimaryKey(autoGenerate = true)
-    var _id: Int = 0
-}
+    )

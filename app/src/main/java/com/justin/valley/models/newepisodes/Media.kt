@@ -1,7 +1,6 @@
 package com.justin.valley.models.newepisodes
 
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.justin.valley.models.common.CoverAsset
@@ -17,7 +16,8 @@ data class Media(
     val type: String?,
 
     @Json(name = "title")
-    val title: String?,
+    @PrimaryKey
+    val title: String,
 
     @Json(name = "coverAsset")
     @TypeConverters(CoverAssetTypeConverter::class)
@@ -26,7 +26,4 @@ data class Media(
     @Json(name = "channel")
     @TypeConverters(NewEpisodeChannelTypeConverter::class)
     val channel: NewEpisodeChannel?,
-) {
-    @PrimaryKey(autoGenerate = true)
-    var id: Int = 0
-}
+)
