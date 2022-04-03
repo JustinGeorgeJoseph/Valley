@@ -27,6 +27,7 @@
             android:layout_width="@dimen/size_50"
             android:layout_height="@dimen/size_50"
             android:layout_marginStart="@dimen/space_5x"
+            android:background="@drawable/bg_rectangle_round"
             bind:roundImageUrl="@{iconUrl}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

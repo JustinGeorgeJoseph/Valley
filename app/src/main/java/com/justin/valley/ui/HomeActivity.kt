@@ -1,20 +1,17 @@
 package com.justin.valley.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.justin.valley.R
 import com.justin.valley.adapters.HomeAdapter
 import com.justin.valley.databinding.ActivityMainBinding
-import com.justin.valley.utils.TAG_LOG
+import com.justin.valley.utils.HomeRefreshStatus
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -33,10 +30,10 @@ class HomeActivity : AppCompatActivity() {
             this, R.layout.activity_main)
         setContentView(binding?.root)
         setupView()
-        lifecycleScope.launchWhenCreated {
-            homeViewModel.refreshHomeContents()
-        }
         getContents()
+        lifecycleScope.launchWhenStarted {
+            homeViewModel.fetchHomeContents()
+        }
     }
 
     private fun setupView() {
@@ -45,14 +42,22 @@ class HomeActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@HomeActivity)
             adapter = homeAdapter
         }
+        binding?.swipeRefresh?.setOnRefreshListener {
+            lifecycleScope.launch(Dispatchers.IO){
+                homeViewModel.refreshHomeContents()
+            }
+        }
     }
 
     private fun getContents() {
         lifecycleScope.launch(Dispatchers.Main) {
             homeViewModel.getContents().collect{
-                withContext(Dispatchers.Main){
                     homeAdapter?.submitList(it)
-                }
+            }
+        }
+        homeViewModel.homeRefreshStatus.observe(this){
+            if (it == HomeRefreshStatus.ENDED){
+                binding?.swipeRefresh?.isRefreshing = false
             }
         }
     }

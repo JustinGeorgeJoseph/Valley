@@ -1,8 +1,11 @@
 package com.justin.valley.ui
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.justin.valley.adapters.utils.HomeRowType
 import com.justin.valley.domain.usecase.HomeContentsUseCase
+import com.justin.valley.utils.HomeRefreshStatus
 import com.justin.valley.utils.getCourseSublist
 import com.justin.valley.utils.getSeriesSublist
 import com.justin.valley.utils.getSublist
@@ -11,15 +14,18 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.supervisorScope
 import kotlinx.coroutines.withContext
-import java.lang.Exception
 import javax.inject.Inject
+import kotlin.Exception
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val homeContentsUseCase: HomeContentsUseCase,
 ) : ViewModel() {
 
-    suspend fun refreshHomeContents() = supervisorScope {
+    private val _homeRefreshStatus = MutableLiveData<HomeRefreshStatus>()
+    val homeRefreshStatus : LiveData<HomeRefreshStatus> = _homeRefreshStatus
+
+    suspend fun fetchHomeContents() = supervisorScope {
         withContext(Dispatchers.IO) {
             try {
                 homeContentsUseCase.refreshHomeNewEpisodes()
@@ -54,6 +60,7 @@ class HomeViewModel @Inject constructor(
             val contents =combine(newEpisodeFlow,
                 channelsFlow,
                 categoriesFlow) { newEpisodes, channels, categories ->
+                _homeRefreshStatus.postValue(HomeRefreshStatus.ENDED)
                 val homeContent = arrayListOf<HomeRowType>()
                 homeContent.add(HomeRowType.NewEpisodeRow(getSublist(newEpisodes,6)))
                 channels.forEach { channel ->
@@ -69,5 +76,18 @@ class HomeViewModel @Inject constructor(
         return contents
     }
 
+    suspend fun refreshHomeContents() =  supervisorScope {
+        try {
+            _homeRefreshStatus.postValue(HomeRefreshStatus.STARTED)
+            homeContentsUseCase.run {
+                deleteHomeNewEpisodes()
+                deleteHomeChannels()
+                deleteHomeCategories()
+            }
+            fetchHomeContents()
+        }catch (e:Exception){
+
+        }
+    }
 
 }

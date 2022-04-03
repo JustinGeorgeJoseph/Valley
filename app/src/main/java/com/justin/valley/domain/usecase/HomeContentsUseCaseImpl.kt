@@ -40,6 +40,27 @@ class HomeContentsUseCaseImpl @Inject constructor(
         }
     }
 
+    override suspend fun deleteHomeNewEpisodes() {
+        try {
+            valleyDatabase.getNewEpisodesDao().deleteAll()
+        } catch (e: Exception) {
+        }
+    }
+
+    override suspend fun deleteHomeChannels() {
+        try {
+            valleyDatabase.getChannelsDao().deleteAll()
+        } catch (e: Exception) {
+        }
+    }
+
+    override suspend fun deleteHomeCategories() {
+        try {
+            valleyDatabase.getCategoryDao().deleteAll()
+        } catch (e: Exception) {
+        }
+    }
+
     override suspend fun getCategories(): Flow<List<Category>> =
         valleyDatabase.getCategoryDao().getCategories()
 
