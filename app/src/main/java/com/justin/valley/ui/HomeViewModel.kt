@@ -56,9 +56,9 @@ class HomeViewModel @Inject constructor(
                 homeContent.add(HomeRowType.NewEpisodeRow(newEpisodes))
                 channels.forEach { channel ->
                     if (channel.series.isNullOrEmpty()) {
-                        homeContent.add(HomeRowType.CourseRow(channel.latestMedia!!))
+                        homeContent.add(HomeRowType.CourseRow(channel))
                     } else {
-                        homeContent.add(HomeRowType.SeriesRow(channel.series))
+                        homeContent.add(HomeRowType.SeriesRow(channel))
                     }
                 }
                 homeContent.add(HomeRowType.CategoryRow(categories))

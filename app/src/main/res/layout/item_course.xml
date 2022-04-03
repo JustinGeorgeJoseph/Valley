@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="url"
+            type="String" />
+    </data>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_5x">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_logo"
+                android:layout_width="@dimen/size_180"
+                android:layout_height="@dimen/size_228"
+                app:cardCornerRadius="@dimen/radius_12"
+                app:cardBackgroundColor="@color/valley_blue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" >
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/logo"
+                    bind:imageUrl="@{url}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/episode_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:lineHeight="@dimen/text_size_22"
+                android:letterSpacing="0.02"
+                android:maxLines="3"
+                android:text="@{title}"
+                android:layout_marginStart="@dimen/space_5"
+                android:layout_marginEnd="@dimen/space_5"
+                android:layout_marginTop="@dimen/space_10"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_17"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/card_logo"
+                app:layout_constraintTop_toBottomOf="@id/card_logo" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

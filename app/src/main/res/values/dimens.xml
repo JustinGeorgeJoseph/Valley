@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="space_1">1dp</dimen>
+    <dimen name="space_10">10dp</dimen>
+
+    <dimen name="space_5x">20dp</dimen>
+    <dimen name="space_14x">56dp</dimen>
+
+
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_25">25sp</dimen>
+    <dimen name="text_size_30">30sp</dimen>
+    <dimen name="text_size_35">35sp</dimen>
+    <dimen name="space_30">30dp</dimen>
+    <dimen name="space_19">19dp</dimen>
+    <dimen name="space_46">46dp</dimen>
+    <dimen name="size_50">50dp</dimen>
+    <dimen name="space_14">14dp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="size_60">60dp</dimen>
+    <dimen name="space_11">11dp</dimen>
+    <dimen name="space_9">9dp</dimen>
+    <dimen name="space_13">13dp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="space_2x">8dp</dimen>
+    <dimen name="space_3x">12dp</dimen>
+    <dimen name="space_38">38dp</dimen>
+    <dimen name="size_228">228dp</dimen>
+    <dimen name="text_size_22">22sp</dimen>
+    <dimen name="text_size_17">17sp</dimen>
+    <dimen name="text_size_13">13sp</dimen>
+    <dimen name="size_180">180dp</dimen>
+    <dimen name="radius_12">12dp</dimen>
+    <dimen name="space_5">5dp</dimen>
+    <dimen name="size_172">172dp</dimen>
+</resources>
